@@ -12,11 +12,13 @@ class Calculate(
         operators: List<Operator>,
     ): Double {
         operators.forEach { operator ->
-            check(numbers.canCalculate())
+            check(numbers.canCalculate()) {
+                "[Calculate] 연산에 적어도 숫자 2개가 필요합니다. | numbers: ${numbers.size}"
+            }
 
             val result = calculate(
-                firstNumber = numbers.getFirstNumber(),
-                secondNumber = numbers.getSecondNumber(),
+                firstNumber = numbers.firstNumber,
+                secondNumber = numbers.secondNumber,
                 operator = operator,
             )
             numbers.updateAfterCalculate(result)

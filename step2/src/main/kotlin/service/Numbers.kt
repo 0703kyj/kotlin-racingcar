@@ -3,13 +3,18 @@ package service
 data class Numbers(
     private var values: List<Double>,
 ) {
-    fun getFirstNumber() = values.getOrElse(0) {
-        throw IllegalStateException()
-    }
+    val size
+        get() = values.size
 
-    fun getSecondNumber() = values.getOrElse(1) {
-        throw IllegalStateException()
-    }
+    val firstNumber
+        get() = values.getOrElse(0) {
+            throw IllegalStateException()
+        }
+
+    val secondNumber
+        get() = values.getOrElse(1) {
+            throw IllegalStateException()
+        }
 
     fun getResult(): Double {
         check(values.size == 1)
