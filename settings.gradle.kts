@@ -3,3 +3,4 @@ plugins {
 }
 rootProject.name = "kotlin-racingcar"
 include("step1")
+include("step2")
