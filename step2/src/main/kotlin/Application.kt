@@ -15,7 +15,7 @@ data class CalculateRequest(
     val operators: List<Operator>,
 ) {
     companion object {
-        private const val EMPTY = ""
+        private const val SPACE = " "
 
         /**
          * 입력 값은 숫자와 사칙연산자가 반복되는 형태
@@ -23,13 +23,13 @@ data class CalculateRequest(
          * 홀수 자리: 숫자
          * 짝수 자리: 연산자
          *
-         * ex) 3+4-5*2/1
+         * ex) 3 + 4 - 5 * 2 / 1
          */
         fun from(input: String?): CalculateRequest {
             require(!input.isNullOrBlank()) {
                 "[CalculateRequest] 입력 값은 null 이거나 빈값일 수 없습니다. | 입력 값: '$input'"
             }
-            val values = input.split(EMPTY)
+            val values = input.split(SPACE)
                 .filter { it.isNotBlank() }
 
             return CalculateRequest(

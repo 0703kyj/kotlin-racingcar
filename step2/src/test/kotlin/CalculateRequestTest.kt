@@ -27,7 +27,7 @@ class CalculateRequestTest {
 
     @Test
     fun `연산 식이 숫자로 시작하지 않는 경우 예외가 발생한다`() {
-        val input = "*1+2"
+        val input = "* 1 + 2"
 
         val exception = shouldThrowExactly<IllegalArgumentException> {
             CalculateRequest.from(input)
@@ -38,7 +38,7 @@ class CalculateRequestTest {
 
     @Test
     fun `연산 식의 두번째 문자가 숫자이면 경우 예외가 발생한다`() {
-        val input = "1 2 3+2"
+        val input = "1 2 3 + 2"
 
         val exception = shouldThrowExactly<IllegalArgumentException> {
             CalculateRequest.from(input)
