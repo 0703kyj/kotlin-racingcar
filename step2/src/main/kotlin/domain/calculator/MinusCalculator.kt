@@ -1,9 +1,9 @@
 package domain.calculator
 
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 
 class MinusCalculator : Calculator {
-    override val operator: Operator = Operator.MINUS
+    override val calculateType: CalculateType = CalculateType.MINUS
 
     override fun calculate(
         firstNumber: Double,

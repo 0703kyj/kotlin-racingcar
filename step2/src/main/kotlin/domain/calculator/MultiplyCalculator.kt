@@ -1,9 +1,9 @@
 package domain.calculator
 
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 
 class MultiplyCalculator : Calculator {
-    override val operator: Operator = Operator.MULTIPLY
+    override val calculateType: CalculateType = CalculateType.MULTIPLY
 
     override fun calculate(
         firstNumber: Double,

@@ -23,7 +23,7 @@ data class Numbers(
         return values[0]
     }
 
-    fun canCalculate() = size >= 2
+    fun canCalculate() = size % 2 == 0
 
     fun updateAfterCalculate(result: Double) {
         values = listOf(result) + values.drop(2)

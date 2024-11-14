@@ -1,14 +1,14 @@
 package domain.calculator
 
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 
 /**
  * 구현 이후 CalculatorConfig 설정 필요
  */
 interface Calculator {
-    val operator: Operator
+    val calculateType: CalculateType
 
-    fun support(operator: Operator): Boolean = this.operator == operator
+    fun support(calculateType: CalculateType): Boolean = this.calculateType == calculateType
 
     fun calculate(
         firstNumber: Double,

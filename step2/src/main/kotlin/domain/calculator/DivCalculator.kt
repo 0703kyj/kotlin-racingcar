@@ -1,9 +1,9 @@
 package domain.calculator
 
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 
 class DivCalculator : Calculator {
-    override val operator: Operator = Operator.DIV
+    override val calculateType: CalculateType = CalculateType.DIV
 
     override fun calculate(
         firstNumber: Double,

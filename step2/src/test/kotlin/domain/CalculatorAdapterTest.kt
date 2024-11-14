@@ -1,7 +1,7 @@
 package domain
 
 import config.CalculatorConfig
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.EnumSource
@@ -15,10 +15,10 @@ class CalculatorAdapterTest {
      * 2. CalculatorConfig 에 구현한 Calculator 추가
      */
     @ParameterizedTest
-    @EnumSource(Operator::class)
-    fun `Operator에 해당하는 모든 Calcultor를 찾을 수 있다`(operator: Operator) {
+    @EnumSource(CalculateType::class)
+    fun `Operator에 해당하는 모든 Calcultor를 찾을 수 있다`(calculateType: CalculateType) {
         shouldNotThrowAny {
-            calculatorAdapter.get(operator)
+            calculatorAdapter.get(calculateType)
         }
     }
 }

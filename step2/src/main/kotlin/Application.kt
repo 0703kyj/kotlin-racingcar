@@ -1,4 +1,4 @@
-import domain.calculator.enums.Operator
+import domain.calculator.enums.CalculateType
 import service.Calculate
 import service.Numbers
 
@@ -7,12 +7,12 @@ private val calculate: Calculate = Calculate()
 fun main() {
     val calculateRequest = CalculateRequest.from(readlnOrNull())
 
-    println(calculate(numbers = calculateRequest.numbers, operators = calculateRequest.operators))
+    println(calculate(numbers = calculateRequest.numbers, calculateTypes = calculateRequest.calculateTypes))
 }
 
 data class CalculateRequest(
     val numbers: Numbers,
-    val operators: List<Operator>,
+    val calculateTypes: List<CalculateType>,
 ) {
     companion object {
         private const val SPACE = " "
@@ -34,7 +34,7 @@ data class CalculateRequest(
 
             return CalculateRequest(
                 numbers = Numbers(values.filterNumbers()),
-                operators = values.filterOperators(),
+                calculateTypes = values.filterCalculateTypes(),
             )
         }
 
@@ -44,10 +44,10 @@ data class CalculateRequest(
                 .map { it.toNumber() }
                 .toList()
 
-        private fun List<String>.filterOperators() =
+        private fun List<String>.filterCalculateTypes() =
             this.asSequence()
                 .filterIndexed { index, _ -> index % 2 == 1 }
-                .map { Operator.get(it) }
+                .map { CalculateType.get(it) }
                 .toList()
 
         private fun String.toNumber(): Double {
