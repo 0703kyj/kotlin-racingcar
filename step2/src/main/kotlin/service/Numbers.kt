@@ -1,5 +1,7 @@
 package service
 
+import domain.calculator.enums.CalculateType
+
 data class Numbers(
     private var values: List<Double>,
 ) {
@@ -23,9 +25,20 @@ data class Numbers(
         return values[0]
     }
 
-    fun canCalculate() = size % 2 == 0
+    fun canCalculate() = size >= 2
+
+    fun calculate(calculateType: CalculateType): Double {
+        val result = calculateType.calculate(firstNumber, secondNumber)
+
+        updateAfterCalculateV2(result)
+        return result
+    }
 
     fun updateAfterCalculate(result: Double) {
+        values = listOf(result) + values.drop(2)
+    }
+
+    private fun updateAfterCalculateV2(result: Double) {
         values = listOf(result) + values.drop(2)
     }
 }

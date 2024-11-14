@@ -12,7 +12,7 @@ class Calculate(
         calculateTypes: List<CalculateType>,
     ): Double {
         check(numbers.canCalculate()) {
-            "[Calculate] 연산에 숫자가 짝수 개가 필요합니다. | numbers: ${numbers.size}"
+            "[Calculate] 연산에 적어도 숫자 2개가 필요합니다. | numbers: ${numbers.size}"
         }
         calculateTypes.forEach { calculateType ->
             val result = calculate(

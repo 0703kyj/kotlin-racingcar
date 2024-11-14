@@ -1,13 +1,15 @@
 import domain.calculator.enums.CalculateType
 import service.Calculate
+import service.CalculateV2
 import service.Numbers
 
 private val calculate: Calculate = Calculate()
+private val calculateV2: CalculateV2 = CalculateV2()
 
 fun main() {
     val calculateRequest = CalculateRequest.from(readlnOrNull())
 
-    println(calculate(numbers = calculateRequest.numbers, calculateTypes = calculateRequest.calculateTypes))
+    println(calculateV2(numbers = calculateRequest.numbers, calculateTypes = calculateRequest.calculateTypes))
 }
 
 data class CalculateRequest(
