@@ -3,20 +3,21 @@ package racingcar.view
 class ResultView {
     fun printRaceResultTitle() = println(RACE_RESULT_TITLE)
 
-    fun showResult(raceResults: List<RaceResult>) {
+    fun printResult(raceResults: List<RaceResult>) {
         raceResults.sortedBy { it.carId }
             .forEach {
-                showResultPerCar(it)
+                printResultPerCar(it)
             }
         println()
     }
 
-    private fun showResultPerCar(raceResult: RaceResult) {
-        println(CAR_MOVED_MARKER.repeat(raceResult.position))
+    private fun printResultPerCar(raceResult: RaceResult) {
+        val currentPosition = CAR_MOVED_MARKER.repeat(raceResult.position)
+        println(currentPosition)
     }
 
     data class RaceResult(
-        val carId: Long,
+        val carId: Int,
         val position: Int,
     )
 

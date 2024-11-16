@@ -1,6 +1,7 @@
 package racingcar.controller
 
-import racingcar.service.CarService
+import racingcar.domain.car.Car
+import racingcar.domain.car.CarService
 import racingcar.service.Race
 import racingcar.view.InputView
 import racingcar.view.ResultView
@@ -12,16 +13,23 @@ class RaceController(
     private val carService: CarService,
     private val race: Race,
 ) {
-    fun start() {
-        val raceStartRequest = inputView.inputForRace()
-        carService.registerAll(raceStartRequest.carCount)
+    fun inputForRace() = inputView.inputForRace()
 
+    fun register(carCount: Int) = carService.registerAll(carCount)
+
+    fun startRace(totalRaceSet: Int) {
         resultView.printRaceResultTitle()
-        repeat(raceStartRequest.totalRaceSet) {
-            val raceResults = race().map {
-                RaceResult(carId = it.carId, position = it.position)
-            }
-            resultView.showResult(raceResults)
+
+        repeat(totalRaceSet) {
+            race()
+            val cars = carService.findAll()
+            resultView.printResult(cars.toRaceResult())
+        }
+    }
+
+    private fun List<Car>.toRaceResult(): List<RaceResult> {
+        return this.map {
+            RaceResult(carId = it.getId(), position = it.currentPosition)
         }
     }
 }

@@ -1,8 +1,7 @@
 package racingcar
 
 import racingcar.controller.RaceController
-import racingcar.domain.CarRepository
-import racingcar.service.CarService
+import racingcar.domain.car.CarService
 import racingcar.service.Race
 import racingcar.view.InputView
 import racingcar.view.ResultView
@@ -19,9 +18,7 @@ class RaceConfig {
 
     private fun race() = Race(carService())
 
-    private fun carService() = CarService(carRepository())
-
-    private fun carRepository() = CarRepository()
+    private fun carService() = CarService()
 
     private fun inputView(): InputView = InputView()
 

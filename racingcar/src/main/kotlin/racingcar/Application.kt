@@ -7,5 +7,7 @@ class Application
 private val raceController: RaceController = RaceConfig().raceController()
 
 fun main() {
-    raceController.start()
+    val raceStartRequest = raceController.inputForRace()
+    raceController.register(raceStartRequest.carCount)
+    raceController.startRace(raceStartRequest.totalRaceSet)
 }

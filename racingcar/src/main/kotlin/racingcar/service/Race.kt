@@ -1,14 +1,15 @@
 package racingcar.service
 
+import racingcar.domain.car.CarService
+
 class Race(
     private val carService: CarService,
 ) {
-    data class Result(
-        val carId: Long,
-        val position: Int,
-    )
+    operator fun invoke() {
+        val cars = carService.findAll()
 
-    operator fun invoke(): List<Result> {
-        return emptyList()
+        cars.forEach { car ->
+            car.tryForward()
+        }
     }
 }
