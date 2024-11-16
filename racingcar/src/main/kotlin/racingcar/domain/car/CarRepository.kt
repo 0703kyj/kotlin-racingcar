@@ -14,4 +14,9 @@ object CarRepository {
             .toList()
             .sortedBy { it.getId() }
     }
+
+    fun clear() {
+        lastRegisteredCarId = 0
+        cars = mutableMapOf()
+    }
 }

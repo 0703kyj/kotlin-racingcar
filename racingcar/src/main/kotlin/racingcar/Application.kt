@@ -10,4 +10,5 @@ fun main() {
     val raceStartRequest = raceController.inputForRace()
     raceController.register(raceStartRequest.carCount)
     raceController.startRace(raceStartRequest.totalRaceSet)
+    raceController.endRace()
 }
