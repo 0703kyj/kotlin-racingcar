@@ -1,7 +1,6 @@
 package racingcar.controller
 
 import racingcar.domain.car.Car
-import racingcar.domain.car.CarRepository
 import racingcar.domain.car.CarService
 import racingcar.service.Race
 import racingcar.view.InputView
@@ -29,7 +28,7 @@ class RaceController(
     }
 
     fun endRace() {
-        CarRepository.clear()
+        carService.clear()
     }
 
     private fun List<Car>.toRaceResult(): List<RaceResult> {

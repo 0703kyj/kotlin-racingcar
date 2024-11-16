@@ -8,4 +8,6 @@ class CarService {
     }
 
     fun findAll(): List<Car> = CarRepository.findAll()
+
+    fun clear() = CarRepository.clear()
 }
