@@ -1,6 +1,6 @@
 package racingcar.view
 
-class InputView {
+object InputView {
     fun inputCarCount(): Int = input("자동차 대수는 몇 대인가요?").toIntOrThrow()
         .also { it.validateCarCount() }
 

@@ -1,22 +1,25 @@
 package racingcar
 
 import racingcar.controller.RaceController
+import racingcar.view.InputView
+import racingcar.view.ResultView
 
 class Application
 
 private val raceController: RaceController = RaceConfig().raceController()
 
 fun main() {
+    val carCount = InputView.inputCarCount()
+    val totalRaceSet = InputView.inputTotalRaceSet()
+
     with(raceController) {
-        val raceStartRequest = inputForRace()
+        register(carCount)
 
-        register(raceStartRequest.carCount)
+        ResultView.printRaceResultTitle()
 
-        printRaceResultTitle()
-
-        repeat(raceStartRequest.totalRaceSet) {
+        repeat(totalRaceSet) {
             val raceResults = startRace()
-            printResult(raceResults)
+            ResultView.printResult(raceResults)
         }
         endRace()
     }

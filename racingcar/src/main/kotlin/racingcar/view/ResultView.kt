@@ -1,6 +1,6 @@
 package racingcar.view
 
-class ResultView {
+object ResultView {
     fun printRaceResultTitle() = println(RACE_RESULT_TITLE)
 
     fun printResult(raceResults: List<RaceResult>) {
@@ -21,8 +21,6 @@ class ResultView {
         val position: Int,
     )
 
-    companion object {
-        private const val RACE_RESULT_TITLE = "실행 결과"
-        private const val CAR_MOVED_MARKER = "-"
-    }
+    private const val RACE_RESULT_TITLE = "실행 결과"
+    private const val CAR_MOVED_MARKER = "-"
 }
