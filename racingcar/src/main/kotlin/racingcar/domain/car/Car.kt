@@ -3,7 +3,7 @@ package racingcar.domain.car
 class Car(
     private var id: Int = 0,
     private var position: Int = 0,
-    private val accelerator: Accelerator = AcceleratorImpl(),
+    private val accelerator: Accelerator = RandomAccelerator(),
 ) {
     val currentPosition
         get() = position
