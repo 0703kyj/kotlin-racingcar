@@ -22,19 +22,13 @@ class RaceController(
 
     fun register(carCount: Int) = carService.registerAll(carCount)
 
-    fun startRace(totalRaceSet: Int) {
-        resultView.printRaceResultTitle()
+    fun startRace(): List<RaceResult> = race().toRaceResult()
 
-        repeat(totalRaceSet) {
-            race()
-            val cars = carService.findAll()
-            resultView.printResult(cars.toRaceResult())
-        }
-    }
+    fun endRace() = carService.clear()
 
-    fun endRace() {
-        carService.clear()
-    }
+    fun printRaceResultTitle() = resultView.printRaceResultTitle()
+
+    fun printResult(raceResults: List<RaceResult>) = resultView.printResult(raceResults)
 
     private fun List<Car>.toRaceResult(): List<RaceResult> {
         return this.map {
