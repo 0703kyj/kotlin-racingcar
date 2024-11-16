@@ -16,9 +16,9 @@ class RaceConfig {
         )
     }
 
-    private fun race() = Race(carService())
+    fun carService() = CarService()
 
-    private fun carService() = CarService()
+    fun race() = Race(carService())
 
     private fun inputView(): InputView = InputView()
 
