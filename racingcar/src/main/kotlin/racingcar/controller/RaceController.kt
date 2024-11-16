@@ -13,7 +13,12 @@ class RaceController(
     private val carService: CarService,
     private val race: Race,
 ) {
-    fun inputForRace() = inputView.inputForRace()
+    fun inputForRace(): RaceStartRequest {
+        val carCount = inputView.inputCarCount()
+        val totalRaceSet = inputView.inputTotalRaceSet()
+
+        return RaceStartRequest(carCount = carCount, totalRaceSet = totalRaceSet)
+    }
 
     fun register(carCount: Int) = carService.registerAll(carCount)
 
@@ -36,4 +41,9 @@ class RaceController(
             RaceResult(carId = it.getId(), position = it.currentPosition)
         }
     }
+
+    data class RaceStartRequest(
+        val carCount: Int,
+        val totalRaceSet: Int,
+    )
 }
