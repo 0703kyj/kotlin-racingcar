@@ -5,7 +5,7 @@ class Car(
     val name: String,
     private var position: Int = 0,
     private val accelerator: Accelerator = RandomAccelerator(),
-) : Comparable<Car> {
+) {
     val currentPosition
         get() = position
 
@@ -22,9 +22,5 @@ class Car(
         if (accelerator.tryForward()) {
             position++
         }
-    }
-
-    override fun compareTo(other: Car): Int {
-        return compareValuesBy(this, other) { it.position }
     }
 }
