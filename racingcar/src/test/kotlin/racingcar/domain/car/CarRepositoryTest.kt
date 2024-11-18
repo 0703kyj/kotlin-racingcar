@@ -14,7 +14,7 @@ class CarRepositoryTest {
 
     @Test
     fun `Car를 저장할 수 있다`() {
-        CarRepository.save(Car())
+        CarRepository.save(Car(name = "name"))
 
         val cars = CarRepository.findAll()
 
@@ -26,7 +26,7 @@ class CarRepositoryTest {
     fun `Car를 여러 대 저장할 수 있다`() {
         val carCount = 3
         repeat(carCount) {
-            CarRepository.save(Car())
+            CarRepository.save(Car(name = "name"))
         }
 
         val cars = CarRepository.findAll()

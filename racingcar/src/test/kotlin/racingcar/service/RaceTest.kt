@@ -18,8 +18,8 @@ class RaceTest {
 
     @Test
     fun `Car 가 등록되어 있는 경우 레이스를 진행한다`() {
-        val carCount = 10
-        carService.registerAll(carCount)
+        val carNames = List(10) { "name$it" }
+        carService.registerAll(carNames)
 
         race()
 
