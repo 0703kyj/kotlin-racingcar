@@ -13,4 +13,8 @@ class CarService {
     fun findAll(): List<Car> = CarRepository.findAll()
 
     fun clear() = CarRepository.clear()
+
+    fun findByPosition(maxPosition: Int): List<Car> {
+        return CarRepository.findByPosition(maxPosition)
+    }
 }

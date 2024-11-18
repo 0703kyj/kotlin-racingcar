@@ -15,6 +15,12 @@ object CarRepository {
             .sortedBy { it.getId() }
     }
 
+    fun findByPosition(position: Int): List<Car> {
+        return cars.values
+            .toList()
+            .filter { it.currentPosition == position }
+    }
+
     fun clear() {
         lastRegisteredCarId = 0
         cars = mutableMapOf()

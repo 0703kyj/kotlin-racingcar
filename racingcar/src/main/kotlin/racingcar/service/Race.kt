@@ -14,4 +14,11 @@ class Race(
         }
         return carService.findAll()
     }
+
+    fun findWinners(): List<Car> {
+        val cars = carService.findAll()
+        val maxPosition = cars.max().currentPosition
+
+        return carService.findByPosition(maxPosition)
+    }
 }

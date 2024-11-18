@@ -21,6 +21,9 @@ fun main() {
             val raceResults = startRace()
             ResultView.printResult(raceResults)
         }
+        val winners = findWinners()
+        ResultView.printWinner(winners)
+
         endRace()
     }
 }
