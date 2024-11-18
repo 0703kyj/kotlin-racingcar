@@ -9,11 +9,11 @@ class Application
 private val raceController: RaceController = RaceConfig().raceController()
 
 fun main() {
-    val carCount = InputView.inputCarCount()
+    val carNames = InputView.inputCarNames()
     val totalRaceSet = InputView.inputTotalRaceSet()
 
     with(raceController) {
-        register(carCount)
+        register(carNames)
 
         ResultView.printRaceResultTitle()
 
