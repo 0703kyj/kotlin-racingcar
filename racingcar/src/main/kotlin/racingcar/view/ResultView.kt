@@ -13,11 +13,12 @@ object ResultView {
 
     private fun printResultPerCar(raceResult: RaceResult) {
         val currentPosition = CAR_MOVED_MARKER.repeat(raceResult.position)
-        println(currentPosition)
+        println("${raceResult.name} : $currentPosition")
     }
 
     data class RaceResult(
         val carId: Int,
+        val name: String,
         val position: Int,
     )
 
