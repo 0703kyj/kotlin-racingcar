@@ -47,6 +47,6 @@ class CarTest {
             Car(name = "123456")
         }
 
-        exception.message shouldContain "자동차의 이름은 5자를 초과할 수 없습니다"
+        exception.message shouldContain "자동차의 이름은 1자 이상 5자 이하이어야 합니다"
     }
 }

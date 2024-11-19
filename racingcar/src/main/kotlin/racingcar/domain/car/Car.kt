@@ -7,8 +7,8 @@ class Car(
     private val accelerator: Accelerator = RandomAccelerator(),
 ) {
     init {
-        require(name.length <= MAX_CAR_NAME_LENGTH) {
-            "[Car] 자동차의 이름은 5자를 초과할 수 없습니다. | name: $name, size: ${name.length}"
+        require(name.length in MIN_CAR_NAME_LENGTH..MAX_CAR_NAME_LENGTH) {
+            "[Car] 자동차의 이름은 1자 이상 5자 이하이어야 합니다. | name: $name, size: ${name.length}"
         }
     }
 
@@ -31,6 +31,7 @@ class Car(
     }
 
     companion object {
+        private const val MIN_CAR_NAME_LENGTH = 1
         private const val MAX_CAR_NAME_LENGTH = 5
     }
 }
