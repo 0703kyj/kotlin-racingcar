@@ -6,6 +6,12 @@ class Car(
     private var position: Int = 0,
     private val accelerator: Accelerator = RandomAccelerator(),
 ) {
+    init {
+        require(name.length <= MAX_CAR_NAME_LENGTH) {
+            "[Car] 자동차의 이름은 5자를 초과할 수 없습니다. | name: $name, size: ${name.length}"
+        }
+    }
+
     val currentPosition
         get() = position
 
@@ -22,5 +28,9 @@ class Car(
         if (accelerator.tryForward()) {
             position++
         }
+    }
+
+    companion object {
+        private const val MAX_CAR_NAME_LENGTH = 5
     }
 }

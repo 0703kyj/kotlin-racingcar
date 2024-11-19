@@ -1,7 +1,10 @@
 package racingcar.domain.car
 
+import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.ValueSource
@@ -36,5 +39,14 @@ class CarTest {
         car.tryForward()
 
         car.currentPosition shouldBe 0
+    }
+
+    @Test
+    fun `자동차의 이름은 5자를 초과할 수 없다`() {
+        val exception = shouldThrowExactly<IllegalArgumentException> {
+            Car(name = "123456")
+        }
+
+        exception.message shouldContain "자동차의 이름은 5자를 초과할 수 없습니다"
     }
 }
